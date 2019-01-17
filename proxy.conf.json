@@ -1,0 +1,6 @@
+{
+  "/secure": {
+    "target": "http://192.168.64.2/bemusic/public",
+    "secure": false
+  }
+}
