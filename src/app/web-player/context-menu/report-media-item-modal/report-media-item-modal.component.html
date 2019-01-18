@@ -6,29 +6,25 @@
 </div>
 
 <mat-dialog-content>
-    <div class="input-container link-input-container">
-        <label for="media-item-link" class="hidden">Media item link</label>
-        <input type="text" [(ngModel)]="link" (click)="selectLink($event)" id="media-item-link" readonly tabindex="1">
-        <button mat-flat-button color="accent" class="input-addon" (click)="copyLink()" trans>Copy</button>
-    </div>
 
     <div class="report-via-email">
-        <div class="title"><span trans>Report</span>&nbsp;<strong>"{{mediaItem.name}}"</strong>&nbsp;<span trans>via email</span></div>
-        <form class="input-container email-address-input" (ngSubmit)="addEmail()" ngNativeValidate>
-            <label for="email-input" class="hidden">Email address</label>
-            <input type="email" [(ngModel)]="email.address" id="email-input" name="email-input" placeholder="+Email address" trans-placeholder>
+        <form class="input-container email-address-input">
+            <div class="form-group">
+                <label for="email-subject" class="hidden">Reason:</label>
+                <select name="email-subject" id="email-subject" [(ngModel)]="email.subject" [ngModelOptions]="{standalone: true}" required >
+                    <option value="" selected> -- Please select a reason -- </option>
+                    <option value="1">Playback issues</option>
+                    <option value="2">Needs update</option>
+                    <option value="3">Account issues</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="input-container email-message-input">
+                    <label for="email-message" class="hidden">Please describe why are you reporting this media?</label>
+                    <textarea id="email-message" [(ngModel)]="email.message" [ngModelOptions]="{standalone: true}" rows="10" placeholder="Your message" trans-placeholder></textarea>
+                </div>
+            </div>
         </form>
-        <div class="input-container email-message-input">
-            <label for="email-message" class="hidden">Email message</label>
-            <textarea id="email-message" [(ngModel)]="email.message" rows="10" placeholder="(Optional) Email message" trans-placeholder></textarea>
-        </div>
-        <div class="emails" *ngIf="email.addresses.length">
-            <span class="title" trans>Sharing with:</span>
-            <button class="email no-style" *ngFor="let address of email.addresses" (click)="removeEmail(address)" [matTooltip]="'Remove address' | trans">
-                <span>{{address}}</span>
-                <mat-icon svgIcon="close"></mat-icon>
-            </button>
-        </div>
     </div>
 </mat-dialog-content>
 

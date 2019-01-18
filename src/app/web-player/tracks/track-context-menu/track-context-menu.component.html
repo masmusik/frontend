@@ -18,6 +18,7 @@
         <div class="menu-item" (click)="showLyricsModal()"  *ngIf="!multipleTracksSelected()" trans>Show Lyrics</div>
         <div class="menu-item" (click)="copyLinkToClipboard()" *ngIf="!multipleTracksSelected()" trans>Copy Track Link</div>
         <div class="menu-item" (click)="openShareModal()" *ngIf="!multipleTracksSelected()" trans>Share</div>
+        <div class="menu-item" (click)="openReportModal()" trans>Report</div>
         <div class="menu-item" (click)="downloadTrack()" *ngIf="!multipleTracksSelected() && settings.get('player.enable_download') && data.item.url" trans>Download</div>
         <a class="menu-item"  routerLink="admin/tracks" [queryParams]="{track_id: data.item.id}" *ngIf="currentUser.hasPermission('tracks.update')" trans>Edit</a>
     </div>

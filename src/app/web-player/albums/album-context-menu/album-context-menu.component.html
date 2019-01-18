@@ -13,6 +13,7 @@
         <div class="menu-item" (click)="saveToLibrary()" trans>Save to Your Music</div>
         <div class="menu-item" (click)="copyLinkToClipboard()" trans>Copy Album Link</div>
         <div class="menu-item" (click)="openShareModal()" trans>Share</div>
+        <div class="menu-item" (click)="openReportModal()" trans>Report</div>
         <a class="menu-item"  routerLink="admin/albums" [queryParams]="{album_id: data.item.id}" *ngIf="currentUser.hasPermission('albums.update')" trans>Edit</a>
     </div>
 </div>
